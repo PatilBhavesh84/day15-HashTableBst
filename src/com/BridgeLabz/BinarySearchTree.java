@@ -1,38 +1,47 @@
 package com.BridgeLabz;
 public class BinarySearchTree {
-	static class Node {    
-		int value; 
-		Node left, right; 
+	Node root;
+	class Node {
+		int key;
+		Node left, right;
 
-		Node(int value){ 
-			this.value = value; 
-			left = null; 
-			right = null; 
-		} 
-	} 
-	public void insert(Node node, int value) {
-		if (value < node.value) { 
-			if (node.left != null) { 
-				insert(node.left, value); } 
-			else { 
-				System.out.println( value + " will be at left of " + node.value); node.left = new Node(value); 
-			} 
-		} 
-		else if (value > node.value) {
-			if (node.right != null) {
-				insert(node.right, value);
-			} else {
-				System.out.println(value + " will be at right of "+node.value);
-				node.right = new Node(value);
-			}
+		public Node(int item) {
+			key = item;
+			left = right = null;
 		}
 	}
-	public static void main(String args[]) 
-	{ 
-		BinarySearchTree tree = new BinarySearchTree();
-		Node root = new Node(56);
-		System.out.println("Root node " + root.value);
-		tree.insert(root, 30);
-		tree.insert(root, 70);               
+	// Constructor
+	BinarySearchTree() { 
+		root = null; 
+	}
+
+	BinarySearchTree(int value) { 
+		root = new Node(value); 
+	}
+	public void insert(int key) { root = insertRec(root, key); }
+	public Node insertRec(Node root, int key){
+		if (root == null) {
+			root = new Node(key);
+			return root;
+		}
+
+		if (key < root.key) {
+			root.left = insertRec(root.left, key);
+		}
+		else if (key > root.key) {
+			root.right = insertRec(root.right, key);
+		}
+		return root;
+	}
+	public void inorder() { 
+		inorderRec(root); 
+	}
+
+	public void inorderRec(Node root){
+		if (root != null) {
+			inorderRec(root.left);
+			System.out.println(root.key);
+			inorderRec(root.right);
+		}
 	}
 }
