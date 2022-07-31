@@ -14,7 +14,6 @@ public class Main {
 		tree.insert(40);
 		tree.insert(60);
 		tree.insert(95);
-
 		//parent
 		tree.insert(11);
 		tree.insert(65);
@@ -25,7 +24,7 @@ public class Main {
 		tree.insert(63);
 		tree.insert(67);
 
-		tree.inorder();
+		tree.search(tree.root,63);
 	}
 }
 
