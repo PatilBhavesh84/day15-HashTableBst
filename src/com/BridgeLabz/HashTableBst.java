@@ -16,7 +16,9 @@ public class HashTableBst {
 			}
 		}
 		Set<String> wordsInString = count.keySet();
-		System.out.println("Frequency of words in sentence 'To be or not to be' is");
+		System.out.println("Frequency of words in sentence 'Paranoids are not paranoid because"
+				+ " they are paranoid but because they keep putting themselves deliberately into"
+				+ " paranoid avoidable situations' is");
 		for(String word : wordsInString){
 			if(count.get(word)>1){				
 				System.out.println(word+" : "+count.get(word));
@@ -24,6 +26,7 @@ public class HashTableBst {
 		}
 	}
 	public static void main(String args[]){
-		sentence("To be or not To be");
+		sentence("Paranoids are not paranoid because they are paranoid but because "
+				+ "they keep putting themselves deliberately into paranoid avoidable situations");
 	}
 }
